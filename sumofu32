@@ -1,0 +1,13 @@
+fn sum(list :&[u32])->Option<u32>{
+    let mut a=list.iter();
+    a.try_fold(0u32,|acc,&a| acc.checked_add(a))
+}
+
+fn main(){
+    let list=[1,2,3,4,5,9];
+    let k=sum(&list);
+    match k{
+        Some(c)=>println!("Sum is :{c}"),
+        None=>println!("none")
+    }
+}
